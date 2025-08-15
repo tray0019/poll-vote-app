@@ -3,6 +3,7 @@ package org.trayvilla.votingapp.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.trayvilla.votingapp.model.Poll;
+import org.trayvilla.votingapp.request.Vote;
 import org.trayvilla.votingapp.services.PollService;
 
 import java.util.List;
@@ -33,5 +34,19 @@ public class PollController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    // POST
+    // VOTE
+    // -> Service
+
+    /**
+     *
+     * @param vote
+     */
+    @PostMapping("/vote")
+    public void vote(@RequestBody Vote vote){
+        return pollService.vote(vote.getPollId(), vote.getOptionIndex());
+    }
+
 
 }

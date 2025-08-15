@@ -28,4 +28,12 @@ public class PollService {
     public Optional<Poll> getPollById(Long id) {
         return pollRepository.findById(id);
     }
+
+    public void vote(Long pollId, int optionIndex) {
+        // Get Poll from DB
+        // Get Options
+        // Option
+
+
+    }
 }
