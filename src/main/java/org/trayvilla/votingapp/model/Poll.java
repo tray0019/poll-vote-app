@@ -18,11 +18,11 @@ public class Poll {
     private String question;
 
     @ElementCollection
-    private List<String> options = new ArrayList<>();
+    private List<OptionVote> options = new ArrayList<>();
 
-    @ElementCollection
-    private List<String> votes = new ArrayList<>();
+//    @ElementCollection
+//    private List<String> votes = new ArrayList<>();
 
-//continue at 2:55
+
 
 }
