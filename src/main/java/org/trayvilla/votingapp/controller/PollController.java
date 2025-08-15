@@ -1,5 +1,6 @@
 package org.trayvilla.votingapp.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.trayvilla.votingapp.model.Poll;
 import org.trayvilla.votingapp.services.PollService;
@@ -24,6 +25,13 @@ public class PollController {
     @GetMapping
     public List<Poll> getAllPolls(){
         return pollService.getAllPolls();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Poll> getPolls(@PathVariable Long id){
+        return pollService.getPollById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
