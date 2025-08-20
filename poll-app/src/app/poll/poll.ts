@@ -4,7 +4,7 @@ import { Poll } from '../poll.models';
 
 @Component({
   selector: 'app-poll',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './poll.html',
   styleUrl: './poll.css'
 })
