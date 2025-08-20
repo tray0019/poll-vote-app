@@ -40,6 +40,12 @@ export class PollComponent implements OnInit {
     });
   }
 
+  addOption(){
+    this.newPoll.options.push({
+      optionText: '', voteCount: 0
+    });
+  }
+
   createPoll(){
     this.pollService.createPoll(this.newPoll).subscribe({
       next: (createdPoll) => {
