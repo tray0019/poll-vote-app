@@ -19,7 +19,7 @@ export class PollService {
   }
 
   vote(pollId: number, optionIndex: number): Observable<void> {
-    const url = `${this.baseUrl}/vote}`;
+    const url = `${this.baseUrl}/vote`;
     return this.http.post<void>(url, {pollId, optionIndex});
   }
 
