@@ -44,11 +44,23 @@ export class PollComponent implements OnInit {
     this.pollService.createPoll(this.newPoll).subscribe({
       next: (createdPoll) => {
         this.polls.push(createdPoll);
+        this.resetPoll();
       },
       error: (error) => {
         console.error("Error creating polls: ", error);
       }
     });
+  }
+
+  resetPoll(){
+    this.newPoll = {
+    //id: 0,
+    question: '',
+    options: [
+      { optionText: '', voteCount: 0},
+      { optionText: '', voteCount: 0}
+    ]
+  };
   }
 
   trackByIndex(index: number): number {
