@@ -6,11 +6,21 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-poll',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './poll.html',
   styleUrl: './poll.css'
 })
 export class PollComponent implements OnInit {
+  newPoll: Poll = {
+    //id: 0,
+    question: '',
+    options: [
+      { optionText: '', voteCount: 0},
+      { optionText: '', voteCount: 0}
+    ]
+  };
+
   polls: Poll[] = [];
   constructor(private pollService: PollService){}
 
@@ -28,6 +38,21 @@ export class PollComponent implements OnInit {
         console.error("Error fetching polls: ", error);
       }
     });
+  }
+
+  createPoll(){
+    this.pollService.createPoll(this.newPoll).subscribe({
+      next: (createdPoll) => {
+        this.polls.push(createdPoll);
+      },
+      error: (error) => {
+        console.error("Error creating polls: ", error);
+      }
+    });
+  }
+
+  trackByIndex(index: number): number {
+    return index;
   }
 
 }
