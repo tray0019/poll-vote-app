@@ -51,4 +51,9 @@ public class PollController {
     }
 
 
+    @GetMapping("/healthz")
+    public String ok(){
+        return "ok";
+    }
+
 }
