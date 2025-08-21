@@ -10,7 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/polls")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = {"http://localhost:4200/",
+        "https://poll-vote-app-frontend.onrender.com/"})
 public class PollController {
 
     private final PollService pollService;
