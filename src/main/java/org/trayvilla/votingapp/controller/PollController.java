@@ -50,10 +50,4 @@ public class PollController {
          pollService.vote(vote.getPollId(), vote.getOptionIndex());
     }
 
-
-    @GetMapping("/healthz")
-    public String ok(){
-        return "ok";
-    }
-
 }
