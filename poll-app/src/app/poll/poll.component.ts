@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PollService } from '../poll';
+import { PollService } from '../poll.service';
 import { Poll } from '../poll.models';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-poll',
@@ -25,6 +26,7 @@ export class PollComponent implements OnInit {
   constructor(private pollService: PollService){}
 
   ngOnInit(): void {
+    console.log('API base:', (environment as any).apiBaseUrl);
     this.loadPolls();
   }
 

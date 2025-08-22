@@ -1,4 +1,5 @@
 export const environment = {
-    production: true,
-    apiBaseUrl: 'https://poll-vote-app.onrender.com'
+    production: false,
+    apiBaseUrl: 'http://localhost:8080'
 }
+
